@@ -1,18 +1,9 @@
 import { IPost } from "@/types/postTypes";
 import { useQuery } from "@tanstack/react-query";
+import { fetchAllPosts } from "./basicFetch";
 
-const fetchAllPosts = async (): Promise<IPost[]> => {
-  const response = await fetch(process.env.NEXT_PUBLIC_POSTS_DATA as string);
-  const data = await response.json();
-
-  return data;
+const usePostQuery = () => {
+  return useQuery({ queryKey: ["posts"], queryFn: () => fetchAllPosts<IPost>(process.env.NEXT_PUBLIC_POSTS_DATA as string) });
 };
 
-const useUserQuery = () => {
-  return useQuery({
-    queryKey: ["posts"],
-    queryFn: fetchAllPosts,
-  });
-};
-
-export default useUserQuery;
+export default usePostQuery;
