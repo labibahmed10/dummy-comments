@@ -6,6 +6,7 @@ import React from "react";
 const TimeLineCard = ({ post }: { post: IPost & { name: string } }) => {
   const { data: commentsData, isError, isLoading, error, isSuccess } = useCommentsQuery({ postId: post.id });
 
+  console.log(commentsData);
   return (
     <div key={post.id} className="border p-3 md:max-w-2xl space-y-2 rounded-lg">
       <h1 className="text-xl font-semibold flex items-center gap-2">
