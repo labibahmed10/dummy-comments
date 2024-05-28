@@ -28,8 +28,8 @@ const TimelinePosts = () => {
   return (
     <div className="space-y-3">
       {mainTimelineData
-        ?.sort((a, b) => b.id - a.id)
-        .slice(0, 10)
+        // ?.sort((a, b) => b.id - a.id)
+        ?.slice(0, 10)
         .map((post) => (
           <TimeLineCard key={post.id} post={post} />
         ))}
