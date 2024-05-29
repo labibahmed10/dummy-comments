@@ -8,6 +8,10 @@ const TimelinePosts = () => {
   const { data: postData, isError, isLoading, error, isSuccess } = usePostQuery();
   const { data: userData, isError: isUserError, isLoading: isUserLoading, error: isUserErrMsg, isSuccess: isUserSuccess } = useUserQuery();
 
+  if (isLoading || isUserLoading) {
+    return <div className="flex min-h-screen flex-col items-center justify-between">Loading...</div>;
+  }
+
   const users = userData?.reduce((acc: { [key: number]: string }, user: IUser) => {
     acc[user.id] = user.name;
     return acc;
@@ -16,20 +20,15 @@ const TimelinePosts = () => {
   const mainTimelineData = postData?.map((user) => {
     return {
       ...user,
-      name: users![user.userId],
+      name: (users as { [key: string]: string })[user?.userId],
     };
   });
-
-  console.log("mainTimelineData", mainTimelineData?.slice(0, 1));
-  if (isLoading || isUserLoading) {
-    return <div className="flex min-h-screen flex-col items-center justify-between">Loading...</div>;
-  }
 
   return (
     <div className="space-y-3">
       {mainTimelineData
-        // ?.sort((a, b) => b.id - a.id)
-        ?.slice(0, 10)
+        ?.sort((a, b) => b.id - a.id)
+        // ?.slice(0, 10)
         .map((post) => (
           <TimeLineCard key={post.id} post={post} />
         ))}

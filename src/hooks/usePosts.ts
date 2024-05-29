@@ -3,7 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchAllPosts } from "./basicFetch";
 
 const usePostQuery = () => {
-  return useQuery({ queryKey: ["posts"], queryFn: () => fetchAllPosts<IPost>(process.env.NEXT_PUBLIC_POSTS_DATA as string) });
+  return useQuery({
+    queryKey: ["posts"],
+    queryFn: () => fetchAllPosts<IPost>(process.env.NEXT_PUBLIC_POSTS_DATA as string),
+    refetchOnWindowFocus: false,
+  });
 };
 
 export default usePostQuery;
