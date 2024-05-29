@@ -1,15 +1,18 @@
-import { CircleUserRound, MailCheck, ThumbsDownIcon, ThumbsUpIcon } from "lucide-react";
+import { ThumbsDownIcon, ThumbsUpIcon } from "lucide-react";
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { IComment } from "@/types/commentTypes";
+import { Avatar, AvatarImage } from "../ui/avatar";
 
 const TimelineCommentsCard = ({ data }: { data: IComment }) => {
   return (
     <div key={data.id} className="border border-sky-400 flex-1 mx-auto p-3 rounded-md space-y-1">
       <div className="flex items-center justify-between">
         <h2 className="flex items-center gap-1 text-lg font-medium">
-          <CircleUserRound size={19} />
-          {data.name}
+          <Avatar className="size-7">
+            <AvatarImage src="https://github.com/shadcn.png" />
+          </Avatar>
+          {data.email}
         </h2>
         <div className="flex items-center gap-2">
           <Button className="hover:bg-transparent p-0" size="sm" variant="ghost">
@@ -22,12 +25,8 @@ const TimelineCommentsCard = ({ data }: { data: IComment }) => {
           </Button>
         </div>
       </div>
-      <p className="flex items-center gap-1 italic">
-        <MailCheck size={19} />
-        {data.email}
-      </p>
 
-      <p className="ps-6 text-sm">{data.body}</p>
+      <p className="ps-8 text-sm">{data.body}</p>
     </div>
   );
 };

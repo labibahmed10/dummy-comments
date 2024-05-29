@@ -1,4 +1,4 @@
-import TimelinePosts from "@/components/TimelinePosts";
+import TimelinePosts from "@/components/timeline/TimelinePosts";
 
 export default function Home() {
   return (
