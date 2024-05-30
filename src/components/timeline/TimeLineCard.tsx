@@ -1,3 +1,4 @@
+"use client";
 import useCommentsQuery from "@/hooks/useComments";
 import { IPost } from "@/types/postTypes";
 import { MessageSquare, Newspaper, User } from "lucide-react";
@@ -30,7 +31,7 @@ const TimeLineCard = ({ post }: { post: IPost & { name: string } }) => {
         {post.name}
       </p>
 
-      <p className="ps-6">{post.body}</p>
+      <p className="ps-6">{post.body}</p  >
 
       <Collapsible>
         <CollapsibleTrigger className="flex w-full justify-end items-center">

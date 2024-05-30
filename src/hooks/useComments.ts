@@ -1,5 +1,4 @@
 import { IComment } from "@/types/commentTypes";
-import { IPost } from "@/types/postTypes";
 import { useQuery } from "@tanstack/react-query";
 
 export const fetchAllPosts = async <T>(url: string, postId?: number): Promise<T[]> => {
