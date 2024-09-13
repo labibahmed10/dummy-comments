@@ -6,7 +6,7 @@ import Providers from "@/utils/Providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gold kinen task",
+  title: "Dummy comments",
   description: "This is a frontend application to show users posts with comments in a timeline",
 };
 
