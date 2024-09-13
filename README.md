@@ -1,5 +1,3 @@
-# Gold Kinen - Junior Frontend Engineer Online Code Test
-
 ### _This Web application was made with Next Js latest version._
 
 Tech Stack User -
