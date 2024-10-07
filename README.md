@@ -18,8 +18,8 @@ Description:
 
 ## How to run this project ?
 
-- git clone `https://github.com/labibahmed10/task-gk-fe.git` on your local machine
-- `cd task-gk-fe` and run `npm install`
+- git clone `https://github.com/labibahmed10/dummy-comments.git` on your local machine
+- `cd dummy-comments` and run `npm install`
 - Create a `.env.local` on your root file and copy paste the given env variables below.
 - Type `npm run dev` to run the application on your local machine.
 
